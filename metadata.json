@@ -1,0 +1,9 @@
+{
+  "name": "Lingua AI",
+  "description": "AI-powered accessibility and language-support platform designed for children with Developmental Language Disorder (DLD), language comprehension challenges, and verbal processing needs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
+

@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and preference data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "appLanguage": { "type": "string" },
+        "theme": { "type": "string" },
+        "fontSize": { "type": "string" },
+        "speechRate": { "type": "number" },
+        "useDyslexicFont": { "type": "boolean" },
+        "readingLevel": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "email"]
+    },
+    "ScannedPage": {
+      "title": "ScannedPage",
+      "description": "Scanned or saved book page document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "originalText": { "type": "string" },
+        "simplifiedText": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "originalText"]
+    },
+    "ActivityLog": {
+      "title": "ActivityLog",
+      "description": "Log of completed learning and speech practice activities",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "activityType": { "type": "string" },
+        "points": { "type": "number" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "activityType"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document"
+    },
+    "/users/{userId}/savedPages/{pageId}": {
+      "schema": "ScannedPage",
+      "description": "User saved book pages"
+    },
+    "/users/{userId}/activities/{activityId}": {
+      "schema": "ActivityLog",
+      "description": "User learning activity logs"
+    }
+  }
+}
